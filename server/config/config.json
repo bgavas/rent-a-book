@@ -8,5 +8,9 @@
 		"MONGO_URI": "mongodb://localhost:27017/Library",
 		"PORT": 3000,
 		"API_URL": "http://localhost:3000"
+	},
+	"production": {
+		"MONGO_URI": "mongodb+srv://testuser:testuser@cluster0-scb7k.mongodb.net/test?retryWrites=true&w=majority",
+		"API_URL": "https://rent-a-book.herokuapp.com"
 	}
 }
