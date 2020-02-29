@@ -5,8 +5,16 @@ let BookSchema = new mongoose.Schema({
         type: String,
         index: true,
         unique: true
+    },
+    totalScore: {
+        type: Number,
+        default: 0
+    },
+    totalVote: {
+        type: Number,
+        default: 0
     }
-});
+}, { timestamps: true });
 
 // Create model
 let Book = mongoose.model('Book', BookSchema);

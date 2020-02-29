@@ -9,11 +9,11 @@ let UserSchema = new mongoose.Schema({
     },
     books: {
         past: [{
-            id: {
+            _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Book',
             },
-            userScore: {
+            score: {
                 type: Number,
                 min: 0,
                 max: 10,
@@ -24,7 +24,7 @@ let UserSchema = new mongoose.Schema({
             }
         }],
         present: [{
-            id: {
+            _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Book',
             },
@@ -34,7 +34,7 @@ let UserSchema = new mongoose.Schema({
             }
         }]
     }
-});
+}, { timestamps: true });
 
 // Create model
 let User = mongoose.model('User', UserSchema);

@@ -1,9 +1,9 @@
 const { User } = require('./../../models/user');
 const { Book } = require('./../../models/book');
-const { BookScore } = require('./../../models/bookScore');
+const { Rent } = require('./../../models/rent');
 
 const resetDb = () => {
-    return BookScore.deleteMany({})
+    return Rent.deleteMany({})
         .then(() => Book.deleteMany({}))
         .then(() => User.deleteMany({}));
 };

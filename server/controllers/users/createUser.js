@@ -81,7 +81,7 @@ module.exports = (req, res, next) => {
  *           type: object
  *           $ref: '#/definitions/error'
  *       500:
- *         description: Code = 3000
+ *         description: Error
  *         schema:
  *           type: object
  *           $ref: '#/definitions/error'

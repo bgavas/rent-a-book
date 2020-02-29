@@ -14,6 +14,13 @@ module.exports = {
             en: 'A user with this name already exists'
         }
     },
+    USER_NOT_EXISTS: {
+        code: 1002,
+        message :{
+            tr: 'Böyle bir kullanıcı bulunamadı',
+            en: 'This user does not exist'
+        }
+    },
     BOOK_ALREADY_EXISTS: {
         code: 1001,
         message :{
