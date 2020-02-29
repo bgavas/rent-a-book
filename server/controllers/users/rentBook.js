@@ -2,7 +2,10 @@ const { User } = require('./../../models/user');
 const { Book } = require('./../../models/book');
 const { Rent } = require('./../../models/rent');
 const { RESPONSE_STATUS } = require('./../../utils/constants');
-const { USER_NOT_EXISTS, BOOK_NOT_EXISTS, BOOK_ALREADY_RENTED } = require('./../../utils/errors');
+const {
+	USER_NOT_EXISTS, BOOK_NOT_EXISTS, BOOK_ALREADY_RENTED,
+	BOOK_ALREADY_RENTED_BY_SOMEONE_ELSE
+} = require('./../../utils/errors');
 
 module.exports = (req, res, next) => {
 
@@ -17,7 +20,7 @@ module.exports = (req, res, next) => {
 	// Get book
 	promises.push(Book.findById(bookId, '_id'));
 	// Check rent info
-	promises.push(Rent.findOne({ _userId: userId, _bookId: bookId, returnDate: null }, '_id'));
+	promises.push(Rent.findOne({ _bookId: bookId, returnDate: null }, '_userId'));
     
     // Wait promises
 	return Promise
@@ -29,7 +32,10 @@ module.exports = (req, res, next) => {
 			// Book not exists
 			if (!book) return Promise.reject(BOOK_NOT_EXISTS);
 			// Book already rented by this user
-			if (rent) return Promise.reject(BOOK_ALREADY_RENTED);
+			if (rent) {
+				if (String(rent._userId) === String(userId)) return Promise.reject(BOOK_ALREADY_RENTED);
+				else return Promise.reject(BOOK_ALREADY_RENTED_BY_SOMEONE_ELSE);
+			}
 
 			// Empty promise array
 			promises = [];

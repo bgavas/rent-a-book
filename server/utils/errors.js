@@ -56,6 +56,13 @@ module.exports = {
             en: 'Score must be between 0 and 10'
         }
     },
+    BOOK_ALREADY_RENTED_BY_SOMEONE_ELSE: {
+        code: 1008,
+        message :{
+            tr: 'Bu kitap başkası tarafından kiralanmıştır',
+            en: 'This book has already been rented by someone else'
+        }
+    },
     UNKNOWN: {
         code: 4000,
         message: {

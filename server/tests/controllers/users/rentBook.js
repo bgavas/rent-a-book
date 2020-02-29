@@ -3,7 +3,10 @@ const request = require('supertest');
 const { ObjectID } = require('mongodb');
 const { Rent } = require('./../../../models/rent');
 const { User } = require('./../../../models/user');
-const { USER_NOT_EXISTS, BOOK_NOT_EXISTS, BOOK_ALREADY_RENTED } = require('./../../../utils/errors');
+const {
+    USER_NOT_EXISTS, BOOK_NOT_EXISTS, BOOK_ALREADY_RENTED,
+    BOOK_ALREADY_RENTED_BY_SOMEONE_ELSE
+} = require('./../../../utils/errors');
 const commonSeed = require('./../../seeds/common.seed');
 
 module.exports = (app, routePrefix) => {
@@ -129,6 +132,22 @@ module.exports = (app, routePrefix) => {
                 .expect(400)
                 .expect(res => {
                     expect(res.body.code).toBe(BOOK_ALREADY_RENTED.code);
+                })
+                .end(done);
+
+        });
+
+        it('should not rent if book is rented currently', (done) => {
+
+            const user = commonSeed.users[1];
+            const book = commonSeed.books[2];
+
+            request(app)
+                .post(`/${routePrefix}/${user._id}/borrow/${book._id}`)
+                .send({})
+                .expect(400)
+                .expect(res => {
+                    expect(res.body.code).toBe(BOOK_ALREADY_RENTED_BY_SOMEONE_ELSE.code);
                 })
                 .end(done);
 
