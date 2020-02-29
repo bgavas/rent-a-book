@@ -42,6 +42,20 @@ module.exports = {
             en: 'This book has already been rented by you before. You cannot rent a book twice'
         }
     },
+    BOOK_NOT_RENTED: {
+        code: 1006,
+        message :{
+            tr: 'Bu kitap sizin tarafınızdan kiralanmamış',
+            en: 'This book was not rented by you'
+        }
+    },
+    INCORRECT_SCORE: {
+        code: 1007,
+        message :{
+            tr: 'Skor 0 ile 10 arasında bir sayı olmalıdır',
+            en: 'Score must be between 0 and 10'
+        }
+    },
     UNKNOWN: {
         code: 4000,
         message: {

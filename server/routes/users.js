@@ -23,7 +23,13 @@ const routes = [{
     controller: 'rentBook',
     description: 'Rent a book',
     handlers: [],
-    path: '/:userId/books/:bookId',
+    path: '/:userId/borrow/:bookId',
+    type: 'post'
+}, {
+    controller: 'returnBook',
+    description: 'Return a rented book',
+    handlers: [],
+    path: '/:userId/return/:bookId',
     type: 'post'
 }];
 

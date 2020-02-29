@@ -4,8 +4,6 @@ const logger = require('../utils/logger');
 
 let expressResult = (result, req, res, next) => {
 
-	// console.log(result);
-
 	// If headers set before skip
     if (res.headersSent) {
 		logger.error("Internal servor error. Error: Headers sent.");

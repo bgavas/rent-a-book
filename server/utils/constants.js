@@ -19,4 +19,9 @@ module.exports = {
         SUCCESS: 'Success'
     },
 
+    LIMIT: {
+        MINIMUN_SCORE: 0,
+        MAXIMUM_SCORE: 10
+    }
+
 }

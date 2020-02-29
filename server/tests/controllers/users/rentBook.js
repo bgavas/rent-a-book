@@ -8,7 +8,7 @@ const commonSeed = require('./../../seeds/common.seed');
 
 module.exports = (app, routePrefix) => {
 
-    describe(`POST/${routePrefix}/:userId/books/:bookId`, () => {
+    describe(`POST/${routePrefix}/:userId/borrow/:bookId`, () => {
 
         it('should rent a book', (done) => {
 
@@ -16,7 +16,7 @@ module.exports = (app, routePrefix) => {
             const book = commonSeed.books[0];
 
             request(app)
-                .post(`/${routePrefix}/${user._id}/books/${book._id}`)
+                .post(`/${routePrefix}/${user._id}/borrow/${book._id}`)
                 .send({})
                 .expect(200)
                 .end((err, res) => {
@@ -38,8 +38,8 @@ module.exports = (app, routePrefix) => {
                                 'books.present._id': book._id
                             });
                         })
-                        .then(user => {
-                            expect(user).toBeTruthy();
+                        .then(_user => {
+                            expect(_user).toBeTruthy();
                             done();
                         })
                         .catch(e => done(e));
@@ -54,7 +54,7 @@ module.exports = (app, routePrefix) => {
             const book = commonSeed.books[0];
 
             request(app)
-                .post(`/${routePrefix}/${user._id}/books/${book._id}`)
+                .post(`/${routePrefix}/${user._id}/borrow/${book._id}`)
                 .send({})
                 .expect(200)
                 .end((err, res) => {
@@ -76,8 +76,8 @@ module.exports = (app, routePrefix) => {
                                 'books.present._id': book._id
                             });
                         })
-                        .then(user => {
-                            expect(user).toBeTruthy();
+                        .then(_user => {
+                            expect(_user).toBeTruthy();
                             done();
                         })
                         .catch(e => done(e));
@@ -92,7 +92,7 @@ module.exports = (app, routePrefix) => {
             const book = commonSeed.books[0];
 
             request(app)
-                .post(`/${routePrefix}/${_userId}/books/${book._id}`)
+                .post(`/${routePrefix}/${_userId}/borrow/${book._id}`)
                 .send({})
                 .expect(400)
                 .expect(res => {
@@ -108,7 +108,7 @@ module.exports = (app, routePrefix) => {
             const _bookId = new ObjectID();
 
             request(app)
-                .post(`/${routePrefix}/${user._id}/books/${_bookId}`)
+                .post(`/${routePrefix}/${user._id}/borrow/${_bookId}`)
                 .send({})
                 .expect(400)
                 .expect(res => {
@@ -124,7 +124,7 @@ module.exports = (app, routePrefix) => {
             const book = commonSeed.books[2];
 
             request(app)
-                .post(`/${routePrefix}/${user._id}/books/${book._id}`)
+                .post(`/${routePrefix}/${user._id}/borrow/${book._id}`)
                 .send({})
                 .expect(400)
                 .expect(res => {

@@ -23,7 +23,6 @@ module.exports = (req, res, next) => {
 	return Promise
 		.all(promises)
 		.then(([user, book, rent]) => {
-			console.log('rent', rent)
 
 			// User not exists
 			if (!user) return Promise.reject(USER_NOT_EXISTS);
@@ -41,7 +40,7 @@ module.exports = (req, res, next) => {
 				_bookId: bookId
 			}));
 
-			// Edit user object
+			// Update user object
 			promises.push(User.updateOne({ _id: userId }, {
 				$push: {
 					'books.present': { _id: bookId }
@@ -55,7 +54,7 @@ module.exports = (req, res, next) => {
 		// Success
         .then(() => next({
 			data: {},
-            message: `Book (${bookId}) rented by the user ${userId}`,
+            message: `Book (${bookId}) is rented by the user ${userId}`,
             status: RESPONSE_STATUS.SUCCESS
 		}))
 		// Error
@@ -69,7 +68,7 @@ module.exports = (req, res, next) => {
 
 /**
  * @swagger
- * /users/{userId}/books/{bookId}:
+ * /users/{userId}/rent/{bookId}:
  *   post:
  *     tags:
  *       - User
