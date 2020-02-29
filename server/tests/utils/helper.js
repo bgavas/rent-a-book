@@ -1,9 +1,11 @@
 const { User } = require('./../../models/user');
 const { Book } = require('./../../models/book');
+const { BookScore } = require('./../../models/bookScore');
 
 const resetDb = () => {
-    return User.deleteMany({})
-        .then(() => Book.deleteMany({}));
+    return BookScore.deleteMany({})
+        .then(() => Book.deleteMany({}))
+        .then(() => User.deleteMany({}));
 };
 
 module.exports = {
