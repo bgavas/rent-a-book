@@ -1,7 +1,13 @@
 const helper = require('./../utils/helper');
 
 // Define routes
-const routes = [, {
+const routes = [{
+    controller: 'createBook',
+    description: 'Create a book',
+    handlers: [],
+    path: '/',
+    type: 'post'
+}, {
     controller: 'getBooks',
     description: 'Get book list',
     handlers: [],

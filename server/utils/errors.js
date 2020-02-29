@@ -14,6 +14,13 @@ module.exports = {
             en: 'A user with this name already exists'
         }
     },
+    BOOK_ALREADY_EXISTS: {
+        code: 1001,
+        message :{
+            tr: 'Bu isimle bir kitap zaten var. Lütfen başka bir isim seçin',
+            en: 'A book with this name already exists'
+        }
+    },
     UNKNOWN: {
         code: 4000,
         message: {
