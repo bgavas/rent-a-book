@@ -74,7 +74,7 @@ module.exports = (req, res, next) => {
 
 /**
  * @swagger
- * /users/{userId}/rent/{bookId}:
+ * /users/{userId}/borrow/{bookId}:
  *   post:
  *     tags:
  *       - User
