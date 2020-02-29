@@ -8,4 +8,17 @@ module.exports = {
         PRODUCTION: 'production'
     },
 
+    LANGUAGES : ['en', 'tr'],
+
+    DEFAULT_LANGUAGE : 'en',
+
+    HEADER: {
+        LANGUAGE: 'x-lang'
+    },
+
+    RESPONSE_STATUS: {
+        FAIL: 'Fail',
+        SUCCESS: 'Success'
+    },
+
 }
