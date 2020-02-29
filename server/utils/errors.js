@@ -1,10 +1,17 @@
 module.exports = {
 
-    INTERNAL_SERVER_ERROR: {
+    INCORRECT_REQUEST_PARAMETERS: {
         code: 1000,
         message :{
-            tr: 'Lüften sisteme giriş yapın',
-            en: 'Please login to the system'
+            tr: 'Lüften bütün zorunlu alanları doldurun',
+            en: 'Please fill in all required fields'
+        }
+    },
+    USER_ALREADY_EXISTS: {
+        code: 1001,
+        message :{
+            tr: 'Bu isimle bir kullanıcı zaten var. Lütfen başka bir isim seçin',
+            en: 'A user with this name already exists'
         }
     },
     UNKNOWN: {

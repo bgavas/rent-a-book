@@ -1,7 +1,5 @@
 module.exports = {
 
-    AVAILABLE_VERSIONS: ['v1'], // Available REST service versions
-
     ENVIRONMENT: {
         TEST: 'test',
         DEVELOPMENT: 'development',
@@ -10,7 +8,7 @@ module.exports = {
 
     LANGUAGES : ['en', 'tr'],
 
-    DEFAULT_LANGUAGE : 'en',
+    DEFAULT_LANGUAGE : 'tr',
 
     HEADER: {
         LANGUAGE: 'x-lang'

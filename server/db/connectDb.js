@@ -5,7 +5,8 @@ const conn = mongoose.connection;
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 // Database error

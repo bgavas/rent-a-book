@@ -5,7 +5,6 @@ require('./db/connectDb');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const { AVAILABLE_VERSIONS } = require('./utils/constants');
 const routes = require('./routes');
 const middlewareDefaults = require('./middlewares/defaults');
 const { expressResult } = require('./middlewares/expressResult');
@@ -23,12 +22,9 @@ require('./utils/swagger')(app);
 // Middleware defaults
 app.use(middlewareDefaults);
 
-// Define routes
-Object.keys(routes).forEach(function (key) {
-    // Versioning
-    AVAILABLE_VERSIONS.forEach((version) => {
-        app.use(`/api/${version}/` + key, routes[key](version));
-    });
+// Create endpoints
+Object.keys(routes).forEach(key => {
+    app.use(`/` + key, routes[key]);
 });
 
 // Result handler
