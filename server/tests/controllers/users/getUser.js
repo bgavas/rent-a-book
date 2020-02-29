@@ -6,7 +6,7 @@ const { USER_NOT_EXISTS } = require('./../../../utils/errors');
 
 module.exports = (app, routePrefix) => {
 
-    describe(`GET/${routePrefix}`, () => {
+    describe(`GET/${routePrefix}/:userId`, () => {
 
         it('should get user', (done) => {
 
@@ -24,6 +24,9 @@ module.exports = (app, routePrefix) => {
                     });
                     // Present books
                     expect(res.body.books.present.length).toBe(commonSeed.users[0].books.present.length);
+                    user.books.present.forEach(book => {
+                        expect(res.body.books.present.find(_book => String(book._id) === String(_book._id))).toBeTruthy();
+                    });
                 })
                 .end(done);
 

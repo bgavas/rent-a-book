@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
     
     // Get user list
     return User
-		.findById(userId)
+		.findById(userId, '_id name books')
         .populate('books.past._id', 'name')
 		.populate('books.present._id', 'name')
 		.lean()

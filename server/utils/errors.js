@@ -21,6 +21,13 @@ module.exports = {
             en: 'This user does not exist'
         }
     },
+    BOOK_NOT_EXISTS: {
+        code: 1003,
+        message :{
+            tr: 'Böyle bir kitap bulunamadı',
+            en: 'This book does not exist'
+        }
+    },
     BOOK_ALREADY_EXISTS: {
         code: 1001,
         message :{

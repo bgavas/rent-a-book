@@ -13,6 +13,12 @@ const routes = [{
     handlers: [],
     path: '/',
     type: 'get'
+}, {
+    controller: 'getBook',
+    description: 'Get book',
+    handlers: [],
+    path: '/:bookId',
+    type: 'get'
 }];
 
 
