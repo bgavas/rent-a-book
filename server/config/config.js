@@ -1,4 +1,4 @@
-const { ENVIRONMENT } = require('./../util/constant');
+const { ENVIRONMENT } = require('./../utils/constants');
 
 let env = process.env.NODE_ENV || ENVIRONMENT.DEVELOPMENT;
 process.env.NODE_ENV = env;
