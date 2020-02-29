@@ -4,10 +4,10 @@
  * @swagger
  * definition:
  * 
- *   country:
+ *   error:
  *     properties:
  *       code:
- *         type: string
+ *         type: integer
  *       message:
  *         type: string
  * 

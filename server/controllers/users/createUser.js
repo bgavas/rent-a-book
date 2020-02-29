@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
         });
     }
     
-    // Find or create user
+    // Check if there is a user with this name
     return User
         .findOne({ name }, '_id')
         .then(user => {
@@ -58,7 +58,7 @@ module.exports = (req, res, next) => {
 
 /**
  * @swagger
- * /api/v1/users:
+ * /users:
  *   post:
  *     tags:
  *       - User

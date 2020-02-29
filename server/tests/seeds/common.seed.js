@@ -4,6 +4,9 @@ const { User } = require('./../../models/user');
 const users = [{
     _id: new ObjectID(),
     name: 'Cem Sürer'
+}, {
+    _id: new ObjectID(),
+    name: 'Naz Uzun'
 }];
 
 const populateTables = (done) => {
