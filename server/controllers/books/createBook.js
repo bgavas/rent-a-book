@@ -71,6 +71,10 @@ module.exports = (req, res, next) => {
  *         in: body
  *         schema:
  *           $ref: '#/definitions/newBook'
+ *       - name: x-lang
+ *         in: header
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         schema:

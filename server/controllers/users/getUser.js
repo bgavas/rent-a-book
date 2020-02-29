@@ -60,6 +60,10 @@ module.exports = (req, res, next) => {
  *         in: path
  *         schema:
  *           type: string
+ *       - name: x-lang
+ *         in: header
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         schema:

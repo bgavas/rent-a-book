@@ -30,6 +30,11 @@ module.exports = (req, res, next) => {
  *     description: Get user list
  *     produces:
  *       - application/json
+ *     parameters:
+ *       - name: x-lang
+ *         in: header
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         schema:
