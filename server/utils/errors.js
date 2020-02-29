@@ -29,10 +29,17 @@ module.exports = {
         }
     },
     BOOK_ALREADY_EXISTS: {
-        code: 1001,
+        code: 1004,
         message :{
             tr: 'Bu isimle bir kitap zaten var. Lütfen başka bir isim seçin',
             en: 'A book with this name already exists'
+        }
+    },
+    BOOK_ALREADY_RENTED: {
+        code: 1005,
+        message :{
+            tr: 'Bu kitabı zaten kiraladınız. Aynı kitabı bir daha kiralayamazsınız',
+            en: 'This book has already been rented by you before. You cannot rent a book twice'
         }
     },
     UNKNOWN: {

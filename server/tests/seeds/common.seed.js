@@ -2,6 +2,7 @@ const moment = require('moment');
 const { ObjectID } = require('mongodb');
 const { User } = require('./../../models/user');
 const { Book } = require('./../../models/book');
+const { Rent } = require('./../../models/rent');
 
 const books = [{
     _id: new ObjectID(),
@@ -85,6 +86,7 @@ const populateTables = (done) => {
     Promise.resolve()
         .then(() => User.insertMany(users))
         .then(() => Book.insertMany(books))
+        .then(() => Rent.insertMany(rents))
         .then(() => done());
 };
 

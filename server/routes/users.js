@@ -19,6 +19,12 @@ const routes = [{
     handlers: [],
     path: '/:userId',
     type: 'get'
+}, {
+    controller: 'rentBook',
+    description: 'Rent a book',
+    handlers: [],
+    path: '/:userId/books/:bookId',
+    type: 'post'
 }];
 
 
